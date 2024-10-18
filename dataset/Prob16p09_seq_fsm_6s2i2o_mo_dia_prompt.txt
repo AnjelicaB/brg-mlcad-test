@@ -1,0 +1,64 @@
+
+Implement a hardware module named TopModule with the following interface.
+All input and output ports are one bit unless otherwise specified.
+
+ - input  clk
+ - input  reset
+ - input  in_   (2 bits)
+ - output state (3 bits)
+ - output out   (2 bits)
+
+The module should Moore finite-state machine (FSM) with six states. The
+FSM will be described as a set of FSM transitions with each transition
+specified using the following format.
+
+  X (11) --01--> Y
+
+In this example, the FSM transitions from state X to state Y when the
+input is 01 and output out of the FSM should be 11 during this
+transition. Implement the FSM with the following transitions.
+
+  A (00) --00--> A
+  A (00) --01--> B
+  A (00) --10--> A
+  A (00) --11--> E
+
+  B (00) --00--> C
+  B (00) --01--> B
+  B (00) --10--> A
+  B (00) --11--> E
+
+  C (00) --00--> A
+  C (00) --01--> D
+  C (00) --10--> A
+  C (00) --11--> E
+
+  D (01) --00--> C
+  D (01) --01--> B
+  D (01) --10--> A
+  D (01) --11--> E
+
+  E (10) --00--> F
+  E (10) --01--> F
+  E (10) --10--> A
+  E (10) --11--> E
+
+  F (10) --00--> A
+  F (10) --01--> A
+  F (10) --10--> A
+  F (10) --11--> A
+
+The state machine should use the following state encoding.
+
+ - A : 0
+ - B : 1
+ - C : 2
+ - D : 3
+ - E : 4
+ - F : 5
+
+The FSM should reset to state A when the reset input is one. The internal
+state register should be directly connected to the output port state so
+that this output always reflects the current state of the FSM. Assume all
+sequential logic is triggered on the positive edge of the clock.
+

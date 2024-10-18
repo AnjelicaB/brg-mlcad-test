@@ -1,0 +1,48 @@
+
+problem     = Prob01p01_comb_const_zero
+model       = gpt-4
+temperature = 0.8
+top_p       = 0.95
+max_tokens  = 1024
+
+System Message
+--------------------------------------------------------------------------
+
+You are a Verilog RTL designer that only writes code using correct
+Verilog syntax.
+
+Prompt
+--------------------------------------------------------------------------
+
+Question:
+Implement a hardware module named TopModule with the following interface.
+All input and output ports are one bit unless otherwise specified.
+
+ - output zero
+
+The module implementation should always output a logic zero.
+
+Enclose your code with <CODE> and </CODE>. Only output the code snippet
+and do NOT output anything else.
+
+Answer:
+
+Response
+--------------------------------------------------------------------------
+
+<CODE>
+module TopModule (
+  output zero
+);
+  assign zero = 1'b0;
+endmodule
+</CODE>
+
+Statistics
+--------------------------------------------------------------------------
+
+prompt_tokens = 98
+resp_tokens   = 27
+total_tokens  = 125
+total_cost    = 0.00456
+
